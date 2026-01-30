@@ -158,13 +158,21 @@
                 <div class="social-links">
                     <a href="https://github.com/hess-h">GitHub</a>
                     <a href="https://www.linkedin.com/in/hunter-hess-0323a51b7">LinkedIn</a>
-                    <a href="mailto:hessh119@gmail.com">Email</a>
+                    <a href="#" id="email-link">Email</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // Email obfuscation - construct email dynamically to avoid scrapers
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailLink = document.getElementById('email-link');
+            const user = 'hessh119';
+            const domain = 'gmail.com';
+            emailLink.href = 'mailto:' + user + '@' + domain;
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
